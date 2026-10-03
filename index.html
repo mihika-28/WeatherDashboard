@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A modern responsive weather information dashboard.">
+  <title>SkyCast — Weather Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="SkyCast home">
+        <span class="brand-mark">☁</span>
+        <span>Sky<span>Cast</span></span>
+      </a>
+      <div class="top-actions">
+        <button id="unitToggle" class="icon-btn" title="Switch temperature unit">°C</button>
+        <button id="themeToggle" class="icon-btn" title="Toggle dark mode" aria-label="Toggle dark mode">☾</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">LIVE WEATHER • SIMPLE & BEAUTIFUL</p>
+          <h1>Know your sky<br><span>before you go.</span></h1>
+          <p class="hero-text">Real-time weather, a 5-day forecast and useful details — all in one clean dashboard.</p>
+        </div>
+
+        <form id="searchForm" class="search-box">
+          <span class="search-icon">⌕</span>
+          <input id="cityInput" type="search" placeholder="Search for a city..." autocomplete="off" aria-label="Search city">
+          <button type="submit">Search</button>
+        </form>
+        <div class="quick-row">
+          <button id="locationBtn" class="secondary-btn">⌖ Use my location</button>
+          <div id="recentSearches" class="recent-searches"></div>
+        </div>
+      </section>
+
+      <section id="errorBox" class="error-box hidden" role="alert"></section>
+
+      <section id="loading" class="loading hidden">
+        <div class="spinner"></div>
+        <span>Fetching the latest weather...</span>
+      </section>
+
+      <section id="dashboard" class="dashboard">
+        <div class="current-card glass-card">
+          <div class="current-top">
+            <div>
+              <p id="currentDate" class="muted">Today</p>
+              <h2 id="placeName">Indore, India</h2>
+              <p id="condition" class="condition">Partly cloudy</p>
+            </div>
+            <div id="weatherEmoji" class="weather-emoji">⛅</div>
+          </div>
+          <div class="temperature-row">
+            <span id="temperature" class="temperature">28°</span>
+            <div>
+              <p id="feelsLike" class="feels">Feels like 30°</p>
+              <p id="minMax" class="muted">H 31° • L 22°</p>
+            </div>
+          </div>
+          <div class="sun-bar">
+            <div><span>☀ Sunrise</span><strong id="sunrise">--:--</strong></div>
+            <div class="sun-track"><span id="sunProgress"></span></div>
+            <div><span>☾ Sunset</span><strong id="sunset">--:--</strong></div>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-icon">💧</div><div><p>Humidity</p><strong id="humidity">--%</strong></div></article>
+          <article class="stat-card"><div class="stat-icon">💨</div><div><p>Wind speed</p><strong id="wind">-- km/h</strong></div></article>
+          <article class="stat-card"><div class="stat-icon">🌡</div><div><p>Pressure</p><strong id="pressure">-- hPa</strong></div></article>
+          <article class="stat-card"><div class="stat-icon">👁</div><div><p>Visibility</p><strong id="visibility">-- km</strong></div></article>
+          <article class="stat-card"><div class="stat-icon">🌧</div><div><p>Rain chance</p><strong id="rainChance">--%</strong></div></article>
+          <article class="stat-card"><div class="stat-icon">🧭</div><div><p>Wind direction</p><strong id="windDirection">--</strong></div></article>
+        </div>
+
+        <div class="section-heading">
+          <div><p class="eyebrow">LOOK AHEAD</p><h2>5-day forecast</h2></div>
+          <span id="updatedAt" class="updated">Updated just now</span>
+        </div>
+        <div id="forecast" class="forecast-grid"></div>
+      </section>
+
+      <section class="tip-card">
+        <div class="tip-icon">✦</div>
+        <div><p class="eyebrow">WEATHER TIP</p><p id="weatherTip">Check the forecast before planning outdoor activities.</p></div>
+      </section>
+    </main>
+
+    <footer>SkyCast Weather Dashboard • Built with HTML, CSS & JavaScript</footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
